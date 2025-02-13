@@ -1,0 +1,37 @@
+{
+  "name": "Livewire Devtools",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "A Chrome DevTools extension for debugging Livewire 3 components in Laravel.",
+  "icons": {
+    "48": "/icons/icon48.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "devtools_page": "dist/index.html",
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "dist/content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dist/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
